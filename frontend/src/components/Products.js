@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {Counter} from './Counter'
 import './products.css'
 
 
@@ -6,6 +7,7 @@ export const Products = () => {
   const [products, setProducts] = useState([])
   const [message, setMessage] = useState('')
   const [selectedProduct, setSelectedProduct] = useState([])
+  const [carbs, setCarbs] = useState('')
  
 
 
@@ -79,12 +81,15 @@ export const Products = () => {
             console.log(carbs[0].value)
             
             return <ul key={item.id}>{carbs[0].foodstuff}{carbs[0].name} {carbs[0].value}</ul>
+           
+            
           })
         }
        
       </ul>
 
       </form>
+      <Counter text={selectedProduct} />
       
       
     </div>
