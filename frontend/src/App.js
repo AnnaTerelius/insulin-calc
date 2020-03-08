@@ -7,11 +7,17 @@ import {Products} from './components/Products'
 
 export const App = () => {
   return (
+    <BrowserRouter>
     <main>
+    <Switch>
+    <Route path="/" exact>
     <Products />
+    </Route>
     
-   
+    </Switch>
     </main>
+    
+    </BrowserRouter>
   )
 }
 

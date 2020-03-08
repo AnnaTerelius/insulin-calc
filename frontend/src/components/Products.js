@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import {Counter} from './Counter'
+import { Link } from 'react-router-dom'
 import './products.css'
 
 
@@ -7,7 +9,7 @@ export const Products = () => {
   const [products, setProducts] = useState([])
   const [message, setMessage] = useState('')
   const [selectedProduct, setSelectedProduct] = useState([])
-  const [carbs, setCarbs] = useState('')
+  
  
 
 
@@ -55,7 +57,12 @@ export const Products = () => {
 
 
   return (
-    <div className="container">
+    <BrowserRouter>
+    <main className='backgroundContainer'>
+      <Switch>
+       
+    <div  className="container">
+    <Route path="/" exact> 
       <form className="background" onSubmit={handleSearch} onReset={handleReset}>
         <article className="inputField">
           <input type="text"placeholder="search product" value={message} required className="product" onChange={(event) => { setMessage(event.target.value); console.log("event onChange: Texten är " + event.target.value) }} /><br />
@@ -87,12 +94,20 @@ export const Products = () => {
         }
        
       </ul>
+     
+      <Link to='/counter'><button >that's it!</button></Link>
 
       </form>
+      </Route>
+      <Route path="/counter" exact>
       <Counter text={selectedProduct} />
-      
+      </Route>
       
     </div>
+
+    </Switch>
+    </main>
+    </BrowserRouter>
   )
 }
 

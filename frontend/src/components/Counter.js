@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 export const Counter = (props) => {
+    
     //500/total daily dos insulin = 500/35= 14.3 (1 unit insulin takes care of 14.3 g carbs)
     const personalSetting = 14.3
     const goalValue = 5
@@ -52,19 +53,21 @@ return (
             <form className="background" onSubmit={handleSubmit} onReset={handleReset}>
                 <article className="inputField">
                    
-                    personal dose:  {personalSetting}<br/>
-                    my current bloodsugarlevel:  {bloodSugarLevel}<br/>
-                    insulin dose:  {insulinDose}
+               
+                   
 
                     <input type="text" placeholder=" current bloodsugarlevel" value={bloodSugarLevel} required className="product" onChange = {(event) => { setBloodSugarLevel(event.target.value); console.log("event onChange: Texten är: " + event.target.value)}}/>
-
+                   
                     <button className="submit-btn" type="submit">set</button>
                     <button className="submit-btn" type="reset">reset</button>
+                    current bloodsugarlevel:  {bloodSugarLevel}<br/>
+                    total carbs: {totalCarbs} <br/>
+                    insulin dose:  {insulinDose}
                 
                 </article>
         
             </form>
-             {totalCarbs}
+             
             
         </div> 
     </>
