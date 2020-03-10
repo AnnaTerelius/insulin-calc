@@ -7,7 +7,7 @@ export const Counter = (props) => {
     const goalValue = 5
     //1 unit insulin reduces the bloodsugarlevel with 2.5 mmol/L
     const reductionPerUnit = 2.5
-    const [bloodSugarLevel, setBloodSugarLevel] = useState('')
+    const [bloodSugar, setBloodSugar] = useState('')
    
     
    //calculate total carbs of selected products
@@ -20,25 +20,30 @@ export const Counter = (props) => {
 
       //calculate dose for selected products
       let insulinDose = totalCarbs/personalSetting
-console.log('dose only selected products carbs' + insulinDose)
+      console.log('dose only selected products carbs' + insulinDose)
       //adjust for current bloodsugarlevel
-      insulinDose += (bloodSugarLevel-goalValue)/reductionPerUnit
+      insulinDose += (bloodSugar-goalValue)/reductionPerUnit
       console.log('dose selected products carbs + reduction if high bloodsugarlevel' + insulinDose)
 
 
-      
-
    const  handleSubmit = (event) => {
     event.preventDefault()
-    console.log('inne i funktionen' + bloodSugarLevel)
-
-       setBloodSugarLevel(bloodSugarLevel)
-   }
-
+    console.log('inside function handleSubmit' + bloodSugar)
+    console.log(JSON.stringify({'level': bloodSugar}))
+    fetch('http://localhost:9090/bloodsugars', {
+        method: 'POST',
+        //body: JSON.stringify({'level': bloodSugar}),
+        body: JSON.stringify({bloodSugar}),
+        headers: {'Content-Type': 'application/json'}
+    })
+    .then((res) => res.json())
    
+    }
+
+
   const handleReset = (event) => {
     
-    setBloodSugarLevel('')
+    setBloodSugar('')
    
   }
 
@@ -53,14 +58,11 @@ return (
             <form className="background" onSubmit={handleSubmit} onReset={handleReset}>
                 <article className="inputField">
                    
-               
-                   
-
-                    <input type="text" placeholder=" current bloodsugarlevel" value={bloodSugarLevel} required className="product" onChange = {(event) => { setBloodSugarLevel(event.target.value); console.log("event onChange: Texten är: " + event.target.value)}}/>
+                    <input type="text" placeholder=" current bloodsugarlevel" value={bloodSugar} required className="product" onChange = {(event) => { setBloodSugar(event.target.value); console.log("event onChange: Texten är: " + event.target.value)}}/>
                    
                     <button className="submit-btn" type="submit">set</button>
                     <button className="submit-btn" type="reset">reset</button>
-                    current bloodsugarlevel:  {bloodSugarLevel}<br/>
+                    current bloodsugarlevel:  {bloodSugar}<br/>
                     total carbs: {totalCarbs} <br/>
                     insulin dose:  {insulinDose}
                 
