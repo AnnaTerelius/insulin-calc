@@ -66,7 +66,14 @@ let data = [{
          <div id="chartdiv" style={{ width: "100%", height: "500px" }}></div>
           
         <div className="container1">
-        <div className="linkHome"> <p>Home</p></div>
+        
+        <Link to={`/`}>
+      <div className="backLink"> 
+          <p>Home</p>
+      </div>
+      </Link>
+     
+      </div>
         
         <div className="container">
          <ul>
@@ -77,14 +84,7 @@ let data = [{
        
       </ul>
       </div>
-      <Link to={`/`}>
-      <div className="backLink"> 
-          <div className="arrow">  
-          </div> 
-         
-      </div>
-      </Link>
-      </div>
+     
       </div>
      
     )

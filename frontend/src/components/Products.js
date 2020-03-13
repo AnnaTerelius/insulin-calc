@@ -3,6 +3,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import {Counter} from './Counter'
 import { Link } from 'react-router-dom'
 
+
 import './products.css'
 
 
@@ -58,10 +59,10 @@ export const Products = () => {
     <BrowserRouter>
       <main className='backgroundContainer'>
         <div className="container1">
-        <div className="header">
-          <h1>iCalc</h1>
-        </div>
-     {/*<img className="img" src={test2} alt="insulin"/>*/}
+          <div className="header">
+            <h1>iCalc</h1>
+          </div>
+          {/*<img className="img" src={test2} alt="insulin"/>*/}
         <Switch>
           <div  className="container">
             <Route path="/" exact> 
@@ -85,7 +86,7 @@ export const Products = () => {
                     console.log(carbs[0].value)
                   return <ul className="selectedProducts" key={item.id}>{carbs[0].foodstuff}{carbs[0].name} {carbs[0].value}  </ul>})
                   }
-                  <Link className="add-btn-container" to='/counter'><button className="add-btn">add selected products</button></Link>
+                  <Link className="add-btn-container" to={'/counter'}><button className="add-btn">add selected products</button></Link>
                 </ul>
               </form>
             </Route>
@@ -95,10 +96,15 @@ export const Products = () => {
           </div>
         </Switch>
         <div className="footer">
-          <Link className="link-bloodsugars" to='/bloodsugars'><p>saved bloodsugars</p></Link>
-          <Link className="link-info" to='/info'><p>info</p></Link>
+          <div className="link-bloodsugars">
+          <Link to="/bloodsugars"><p>saved bloodsugars</p></Link>
+          </div>
+          <div className='link-info'>
+          <Link to='/info'> <p className='link-info'>info</p></Link>
+          </div>
         </div>
-        </div>
+      </div>
+     
       </main>
     </BrowserRouter>
   )
