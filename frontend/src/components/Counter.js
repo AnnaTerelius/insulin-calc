@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import moment from 'moment'
 
 export const Counter = (props) => {
     
@@ -33,12 +34,14 @@ export const Counter = (props) => {
     fetch('http://localhost:9090/bloodsugars', {
         method: 'POST',
         //body: JSON.stringify({'level': bloodSugar}),
-        body: JSON.stringify({bloodSugar}),
+        body: JSON.stringify({ 'value': bloodSugar}),
         headers: {'Content-Type': 'application/json'}
     })
     .then((res) => res.json())
    
     }
+
+    
 
 
   const handleReset = (event) => {
@@ -64,7 +67,7 @@ return (
                     <button className="submit-btn" type="reset">reset</button>
                     current bloodsugarlevel:  {bloodSugar}<br/>
                     total carbs: {totalCarbs} <br/>
-                    insulin dose:  {insulinDose}
+                    insulin dose:  {insulinDose.toFixed(1)}
                 
                 </article>
         

@@ -1,0 +1,70 @@
+.backgroundContainer{
+    background-color: white;
+    background-image: url("color.jpg");
+    background-size: cover;
+    
+}
+.background {
+    margin-top: 10px;
+   
+    border-radius: 10px;
+}
+ 
+
+h1{
+    color: rgb(88, 88, 88);
+    margin-top: 120px;
+    margin-right: 190px;    
+}
+
+.searchField{
+    margin-bottom: 10px;
+}
+
+.submit-btn{
+    background-color:  rgb(76, 175, 80, 0.8);  
+    color: black;
+  
+}
+
+.submit-btn {
+    transition-duration: 0.4s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+
+.reset-btn{
+    border-color: rgb(151, 226, 157); 
+    color: black;
+  
+}
+
+.reset-btn {
+    transition-duration: 0.4s;
+  }
+  
+  .reset-btn:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+
+.add-btn{
+    background-color:  rgb(76, 175, 80, 0.8);  
+    color: black;
+    text-decoration: none;
+}
+a:link {
+    text-decoration: none;
+  }
+
+.add-btn {
+    transition-duration: 0.4s;
+  }
+  
+  .add-btn:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }

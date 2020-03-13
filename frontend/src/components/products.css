@@ -1,44 +1,171 @@
-.container{
-    display: flex;
-    justify-content: center;
-}
 
-.background{
-    background-color: lightblue;
-    width: 80%;
+.backgroundContainer{
+    background-image: url("fruits.jpg");
+    background-size: cover;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 700px;
     flex-direction: column;
 }
 
-.inputField{
+.background{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0px;
+    width: 100%;
+    margin-top: 60px;
+    background-color:rgb(103, 143, 123, 0.6); 
+    border-radius: 10px;
+}
+
+h1{
+    color: rgb(61, 60, 60);
+    margin-top: 75px;
+    margin-left: 180px;
+    background-color:rgb(103, 143, 123); 
+    padding: 0px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.submit-btn{
+    background-color: rgb(103, 143, 123);  
+    color: white; 
+    border-radius: 10px;
+    width: 48%;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+.btn-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.reset-btn{
+    border-color: rgb(103, 143, 123); 
+    color: rgb(61, 60, 60);
+    border-radius: 10px;
+    width: 48%;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+.add-btn{
+    background-color: rgb(103, 143, 123); 
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+
+
+.container1{
     width: 80%;
+    height: 700px;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+
+
+ul{
+    list-style-type: none;
+    align-items: left;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.searchField{
+    width: 100%;
 }
 
 .product{
     width: 100%;
     height: 30px;
-    margin-top: 10px;
-}
-.submit-btn{
-    background-color: lightpink;
+    border-radius: 10px;
+    font-size: 1.2em;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
+
+
+
+
+
 ul{
-    background-color: lightgrey;
     width: 100%;
     margin: 0px;
     padding: 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;;
+    text-align: left;
 }
 
 .product-btn{
-    width: 80%;
+    width: 100%;
     height: 20px;
     text-align: left;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;   
+}
+
+li:nth-child(odd) button {
+    background-color: white; 
+  }
+  
+  li:nth-child(even) button {
+    background-color: rgb(233, 227, 227);
+  }
+
+.add-btn-container{
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    display: flex; 
+}
+
+
+
+.footer{
+    
+    background-color:rgb(103, 143, 123); 
+    border-radius: 10px;
+    display: flex;
+    width: 100%;
+    height: 30px;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+p{
+    margin: 0px 10px;
+    font-weight: bold;
+    color: rgb(61, 60, 60);
 }
