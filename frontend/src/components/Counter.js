@@ -56,24 +56,29 @@ export const Counter = (props) => {
 
 return (
     <>
-        <div className="container">
+        <div>
         
             <form className="background" onSubmit={handleSubmit} onReset={handleReset}>
-                <article className="inputField">
-                   
-                    <input type="text" placeholder=" current bloodsugarlevel" value={bloodSugar} required className="product" onChange = {(event) => { setBloodSugar(event.target.value); console.log("event onChange: Texten är: " + event.target.value)}}/>
-                   
-                    <button className="submit-btn" type="submit">set</button>
-                    <button className="submit-btn" type="reset">reset</button>
-                    current bloodsugarlevel:  {bloodSugar}<br/>
-                    total carbs: {totalCarbs} <br/>
-                    insulin dose:  {insulinDose.toFixed(1)}
-                
+                <article className="searchField">
+                    <div className="doseContainer">
+                    <div className="dose">
+                         insulin dos  {insulinDose.toFixed(1)}
+                    </div>
+                    </div>
+                    <div className="calculatedDoseContainer">
+                       {/*} nuvarande blodsocker:  {bloodSugar}<br/>*/}
+                        totalt antal kolhydrater: {totalCarbs} <br/>
+                       {/*} insulin dos:  {insulinDose.toFixed(1)}*/}
+                    </div>
+                    <div className="inputContainer">
+                        <input type="text" placeholder="blodsockervärde" value={bloodSugar} required className="product" onChange = {(event) => { setBloodSugar(event.target.value); console.log("event onChange: Texten är: " + event.target.value)}}/>
+                    </div>
+                    <div className="btn-container">
+                        <button className="submit-btn" type="submit">lägg till</button>
+                        <button className="reset-btn" type="reset">rensa</button>
+                    </div>
                 </article>
-        
-            </form>
-             
-            
+            </form> 
         </div> 
     </>
   )

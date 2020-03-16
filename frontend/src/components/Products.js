@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import {Counter} from './Counter'
 import { Link } from 'react-router-dom'
+import {Info} from './Info'
+import {Bloodsugars} from './Bloodsugars'
 
 
 import './products.css'
@@ -58,20 +60,36 @@ export const Products = () => {
   return (
     <BrowserRouter>
       <main className='backgroundContainer'>
+      
         <div className="container1">
+          
           <div className="header">
-            <h1>iCalc</h1>
+            <div className="backLinkContainer">
+              <Link to={`/`}>
+                <div className="backLink"> 
+                  <h1>iCalc</h1>
+                </div>
+              </Link>
+            </div>
+            <div className="header-links">
+              <Link to="/bloodsugars"><p>diagram</p></Link>
+              <Link to="/info"> <p className='link-info'>info</p></Link>
+            </div>
           </div>
+          
+          
           {/*<img className="img" src={test2} alt="insulin"/>*/}
         <Switch>
           <div  className="container">
             <Route path="/" exact> 
               <form className="background" onSubmit={handleSearch} onReset={handleReset}>
                 <article className="searchField">
-                  <input type="text"placeholder="search product" value={message} required className="product" onChange={(event) => { setMessage(event.target.value); console.log("event onChange: Texten är " + event.target.value) }} /><br />
+                  <div className="inputContainer">
+                  <input type="text"placeholder="sök produkt" value={message} required className="product" onChange={(event) => { setMessage(event.target.value); console.log("event onChange: Texten är " + event.target.value) }} /><br />
+                  </div>
                     <div className="btn-container">
-                      <button className="submit-btn" type="submit">search</button>
-                      <button className="reset-btn" type="reset">reset</button>
+                      <button className="submit-btn" type="submit">sök</button>
+                      <button className="reset-btn" type="reset">rensa</button>
                   </div>
                 </article>
                 <ul className="list1">
@@ -84,24 +102,26 @@ export const Products = () => {
                     const carbs = JSON.parse(item).filter(({name}) => name === 'Kolhydrater');
                     console.log(carbs)
                     console.log(carbs[0].value)
-                  return <ul className="selectedProducts" key={item.id}>{carbs[0].foodstuff}{carbs[0].name} {carbs[0].value}  </ul>})
+                  return <ul className="selectedProducts" key={item.id}>{carbs[0].foodstuff} kolhydrater: {carbs[0].value}  </ul>})
                   }
-                  <Link className="add-btn-container" to={'/counter'}><button className="add-btn">add selected products</button></Link>
+                  <Link className="add-btn-container" to={'/counter'}><button className="add-btn">lägg till</button></Link>
                 </ul>
               </form>
             </Route>
             <Route path="/counter" exact>
               <Counter text={selectedProduct} />
             </Route>
+            <Route path="/info" exact>
+              <Info />
+            </Route>
+            <Route path="/bloodsugars" exact>
+              <Bloodsugars />
+            </Route>
           </div>
         </Switch>
         <div className="footer">
-          <div className="link-bloodsugars">
-          <Link to="/bloodsugars"><p>saved bloodsugars</p></Link>
-          </div>
-          <div className='link-info'>
-          <Link to='/info'> <p className='link-info'>info</p></Link>
-          </div>
+          
+         
         </div>
       </div>
      

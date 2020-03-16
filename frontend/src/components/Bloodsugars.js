@@ -61,21 +61,11 @@ let data = [{
 
 
     return (
-      <div className="backgroundContainer">
-       
-         <div id="chartdiv" style={{ width: "100%", height: "500px" }}></div>
-          
-        <div className="container1">
-        
-        <Link to={`/`}>
-      <div className="backLink"> 
-          <p>Home</p>
-      </div>
-      </Link>
+      <div>
      
-      </div>
-        
-        <div className="container">
+      <div >
+         <div id="chartdiv" style={{ width: "100%", height: "500px" }}></div>
+       {/* <div className="container">
          <ul>
         {bloodsugars.map((bloodsugar) => (
           <li className="listOfBloodsugars">BS Level: {bloodsugar.value}Day:{moment(bloodsugar.createdAt).format('dddd')}</li>
@@ -83,9 +73,9 @@ let data = [{
         ))}
        
       </ul>
-      </div>
+        </div>*/}
      
       </div>
-     
+      </div>
     )
   }
