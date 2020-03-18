@@ -2,6 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import mongoose from 'mongoose'
+//mongodb+srv://annaholly:WAfV2IEidqVDmDR5@cluster0-trdcw.mongodb.net/authAPI?retryWrites=true&w=majority
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/insulin"
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })

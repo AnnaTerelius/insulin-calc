@@ -1,0 +1,33 @@
+{
+  "name": "insulin-calc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^16.13.0",
+    "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint ."
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnaTerelius/insulin-calc.git"
+  },
+  "keywords": [
+    "insulin",
+    "calculator"
+  ],
+  "author": "Anna Terelius",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnnaTerelius/insulin-calc/issues"
+  },
+  "homepage": "https://github.com/AnnaTerelius/insulin-calc#readme"
+}
