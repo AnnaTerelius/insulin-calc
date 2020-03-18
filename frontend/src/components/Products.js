@@ -13,16 +13,24 @@ export const Products = () => {
   const [products, setProducts] = useState([])
   const [message, setMessage] = useState('')
   const [selectedProduct, setSelectedProduct] = useState([])
+  const [error, setError] = useState('')
   
  
-  const handleSearch = (event) => {
+  const handleSearch = async (event) => {
     event.preventDefault()
    //console.log('event handleSearch= when searching a product in API')
-    fetch("https://api.livsmedelkollen.se/search?q=" + message)
-      //fetch("https://api.livsmedelkollen.se")
-      .then (res => res.json())
-      .then (json => {setProducts(json); console.log(json)});
-  }
+    try{ 
+      await fetch("https://api.livsmedelkollen.se/search?q=" + message)
+        //fetch("https://api.livsmedelkollen.se")
+        .then (res => res.json())
+        .then (json => {setProducts(json); console.log(json)});
+        setError('')
+  
+    }catch (err){
+      console.log('Kunde inte hämta produkter! '+ err)
+      setError('Kunde inte hämta produkter!');
+      };
+}
 
   // useEffect(() => { console.log(products)}, [products])
 
@@ -32,21 +40,28 @@ export const Products = () => {
     setSelectedProduct([])
   }
 
-  const handleSelectedProduct = (event) => {
+  const handleSelectedProduct  = async (event) => {
     // setSelectedProduct(event.target.id)  event.preventDefault()
     console.log('searching for '+ event.target.id)
-    fetch("https://api.livsmedelkollen.se/foodstuffs/" + event.target.id)
-      .then (res => res.json())
-      .then (json => {
-     
-        setSelectedProduct(selectedProduct.concat(JSON.stringify(json)));
-        console.log("Result from fetch:")
-        console.log(json)
-      });
+    try { 
+    await fetch("https://api.livsmedelkollen.se/foodstuffs/" + event.target.id)
+      .then (res =>   res.json())
+      .then (json => { 
+          setSelectedProduct(selectedProduct.concat(JSON.stringify(json)));
+          console.log("Result from fetch:")
+          console.log(json)  
+      }) 
+      setError('')
+    }catch (err){
+        console.log('Kunde inte hitta denna produkt! '+ err)
+        setError('Kunde inte hitta denna produkt! ');
+      };
+    
       setProducts([])
       setMessage('')
       //console.log(event.target.value)
-  }
+  };
+  
 
  
   // using useEffect to log selectedProduct in console, since setSelectedProduct(...) is async (it's not possible to console.log in the fetch because of this)
@@ -81,6 +96,7 @@ export const Products = () => {
           {/*<img className="img" src={test2} alt="insulin"/>*/}
         <Switch>
           <div  className="container">
+          <div className="errorMessage">{error}</div>
             <Route path="/" exact> 
               <form className="background" onSubmit={handleSearch} onReset={handleReset}>
                 <article className="searchField">

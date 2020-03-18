@@ -9,7 +9,7 @@ export const Counter = (props) => {
     //1 unit insulin reduces the bloodsugarlevel with 2.5 mmol/L
     const reductionPerUnit = 2.5
     const [bloodSugar, setBloodSugar] = useState('')
-   
+    const [error, setError] = useState('')
     
    //calculate total carbs of selected products
         let totalCarbs = 0
@@ -27,18 +27,24 @@ export const Counter = (props) => {
       console.log('dose selected products carbs + reduction if high bloodsugarlevel' + insulinDose)
 
 
-   const  handleSubmit = (event) => {
-    event.preventDefault()
-    console.log('inside function handleSubmit' + bloodSugar)
-    console.log(JSON.stringify({'level': bloodSugar}))
-    fetch('http://localhost:9090/bloodsugars', {
-        method: 'POST',
-        //body: JSON.stringify({'level': bloodSugar}),
-        body: JSON.stringify({ 'value': bloodSugar}),
-        headers: {'Content-Type': 'application/json'}
-    })
-    .then((res) => res.json())
-   
+   const  handleSubmit = async (event) => {
+        event.preventDefault()
+        console.log('inside function handleSubmit' + bloodSugar)
+        console.log(JSON.stringify({'level': bloodSugar}))
+        try { 
+            await fetch('http://localhost:9090/bloodsugars', {
+                method: 'POST',
+                //body: JSON.stringify({'level': bloodSugar}),
+                body: JSON.stringify({ 'value': bloodSugar}),
+                headers: {'Content-Type': 'application/json'}
+            })
+            .then((res) => res.json())
+            setError('')
+
+        }catch (err){
+            console.log('Kunde inte spsra blodsocker i databasen!' + err)
+            setError('Kunde inte spsra blodsocker i databasen!');
+        };
     }
 
     
@@ -64,6 +70,7 @@ return (
                     <div className="dose">
                          insulin dos  {insulinDose.toFixed(1)}
                     </div>
+                    <div>{error}</div>
                     </div>
                     <div className="calculatedDoseContainer">
                        {/*} nuvarande blodsocker:  {bloodSugar}<br/>*/}

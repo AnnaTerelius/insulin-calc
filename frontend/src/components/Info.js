@@ -12,9 +12,9 @@ export const Info = () => {
            För mer information kring API och diabetes se nedan.</p>
        </div>
        <div className="links">
-      <button className="link-btn"><a href="https://www.livsmedelkollen.se/">livsmedelskollen</a></button> 
-      <button className="link-btn"><a href="https://www.livsmedelsverket.se/">livsmedelsverket</a></button>
-      <button className="link-btn"><a href="https://www.diabetes.se/">diabetesförbundet</a></button>
+   <a href="https://www.livsmedelkollen.se/" target="_blank"><button className="link-btn">livsmedelskollen</button></a> 
+      <a href="https://www.livsmedelsverket.se/" target="_blank"><button className="link-btn">livsmedelsverket</button></a>
+      <a href="https://www.diabetes.se/" target="_blank"><button className="link-btn">diabetesförbundet</button></a>
        </div>
      
         </div>

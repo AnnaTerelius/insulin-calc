@@ -297,9 +297,36 @@ a:hover{
     border: none;
     background-color: rgb(23, 47, 184);
     height: 22px;
+    color: white;
     
 }
 
 .link-btn:hover{
     background-color: rgb(33, 66, 250);  
+}
+
+.errorMessage{
+    color: red;
+}
+
+@media (min-width: 650px){
+    .container1 {
+        width: 60%;
+        
+    }
+
+    .link-btn{
+        height: 25px;
+    }
+}
+
+@media (min-width: 900px){
+    .container1 {
+        width: 40%;
+        
+    }
+
+    .link-btn{
+        height: 30px;
+    }
 }
