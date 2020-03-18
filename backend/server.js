@@ -28,7 +28,7 @@ const BloodSugar = mongoose.model('BloodSugar', {
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 9090
+const port = process.env.PORT || 8000
 const app = express()
 
 
