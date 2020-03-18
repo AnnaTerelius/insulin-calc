@@ -9,11 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint ."
+    "postinstall": "npm install --prefix backend"
   },
   "repository": {
     "type": "git",
