@@ -32,7 +32,7 @@ export const Counter = (props) => {
         console.log('inside function handleSubmit' + bloodSugar)
         console.log(JSON.stringify({'level': bloodSugar}))
         try { 
-            await fetch('http://localhost:9090/bloodsugars', {
+            await fetch('http://localhost:8000/bloodsugars', {
                 method: 'POST',
                 //body: JSON.stringify({'level': bloodSugar}),
                 body: JSON.stringify({ 'value': bloodSugar}),
@@ -43,7 +43,7 @@ export const Counter = (props) => {
 
         }catch (err){
             console.log('Kunde inte spsra blodsocker i databasen!' + err)
-            setError('Kunde inte spsra blodsocker i databasen!');
+            setError('Kunde inte spara blodsocker i databasen!');
         };
     }
 
