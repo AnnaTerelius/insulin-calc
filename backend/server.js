@@ -3,7 +3,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import mongoose from 'mongoose'
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost"
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/insulin"
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.Promise = Promise
 
@@ -13,7 +13,6 @@ const BloodSugar = mongoose.model('BloodSugar', {
   value: {
    type: Number,
    required: true,
-   default: 0
   },
   createdAt: {
     type: Date,
@@ -46,23 +45,31 @@ app.get('/', (req, res) => {
 
 app.post('/bloodsugars', async (req, res) => {
   const {value} = req.body;
+  console.log(typeof value )
   const bloodSugar = new BloodSugar({ value }) 
 
   try {
     const savedBloodSugar = await bloodSugar.save();
     res.status(201).json(savedBloodSugar); 
     
-    
     // Must use "await" here, else the try/catch will not work since "save" is an asynch function
-
-  
   } catch (err) {
-    res.status(400).json({message: 'Could not save bloodsugar', errors: err.errors});
+    console.log(err)
+    res.status(400).json({message: 'Kunde inte spara blodsocker i databasen!', errors: err.errors});
   }
-  
   });
 
-  
+  app.get('/allbloodsugars', async (req, res) => {
+    console.log('Inside /allbloodsugars')
+    try { 
+      const bloodsugars = await BloodSugar.find()
+      res.json(bloodsugars);
+    } catch (err){ 
+      console.log(err)
+      res.status(400).json({message: 'Någonting gick fel!', errors: err.errors});
+    }
+  });
+
 
 // Start the server
 app.listen(port, () => {
