@@ -1,10 +1,7 @@
-
-
 {
-    "name": "insulin-calc",
-    "version": "1.0.0",
-    "scripts": {
-      "postinstall": "npm install --prefix backend"
-    }
-  
+  "name": "insulin-calc",
+  "version": "1.0.0",
+  "scripts": {
+    "postinstall": "npm install --prefix backend"
+  }
 }
