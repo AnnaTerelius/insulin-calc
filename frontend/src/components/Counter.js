@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import moment from 'moment'
 
-const backendUrl = process.env.BACKEND_URL || "http://localhost:8000"
+const backendUrl = process.env.BACKEND_URL || "http://localhost:8001"
 
 export const Counter = (props) => {
     
