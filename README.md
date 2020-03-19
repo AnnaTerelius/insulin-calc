@@ -1,11 +1,12 @@
-# Project Auth
-This team-project was to build, in backend, an API with authentication to implement a registration flow, and a frontend with forms to register and sign in.
+# Project iCalc
+This project is an app to count how much insulin to take for different products.
+It is for people with diabetes, and takes the personaldose and choosen products fetched from an open API and counts how much insulin the user needs including extra if bloodsugar is high. It saves the bloodsugar in database and shows a diagram over saved values.
 
 
-We build it in react, using useState, routes, links and localstorage, MongoDB/mongoose.
+I build it in react, using useState, routes, links and MongoDB/mongoose.
 
 
 Check it out here:
-https://anna-elin-project-auth.netlify.com/
+https://angry-visvesvaraya-f34e48.netlify.com/
 
 
