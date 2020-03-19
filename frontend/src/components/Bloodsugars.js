@@ -19,7 +19,7 @@ export const Bloodsugars = () => {
   const [bloodsugars, setBloodsugars] = useState([])
 
      useEffect(() => {
-      fetch('https://insulin-calc-deployment.herokuapp.com//allbloodsugars')
+      fetch('https://insulin-calc-deployment.herokuapp.com/allbloodsugars')
       .then (res => res.json())
       .then (json => setBloodsugars(json));
     }, []);
