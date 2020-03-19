@@ -12,14 +12,14 @@ import './bloodsugar.css'
 am4core.useTheme(am4themes_animated);
 
 
-const backendUrl = process.env.BACKEND_URL || "http://localhost:8000"
+//const backendUrl = process.env.BACKEND_URL || "http://localhost:8000"
 
 
 export const Bloodsugars = () => {
   const [bloodsugars, setBloodsugars] = useState([])
 
      useEffect(() => {
-      fetch(backendUrl+'/allbloodsugars')
+      fetch('https://insulin-calc-deployment.herokuapp.com//allbloodsugars')
       .then (res => res.json())
       .then (json => setBloodsugars(json));
     }, []);
