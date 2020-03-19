@@ -7,6 +7,7 @@ import mongoose from 'mongoose'
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/insulin"
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.Promise = Promise
+//mongodb+srv://annaholly:WAfV2IEidqVDmDR5@cluster0-trdcw.mongodb.net/insulinCalc?retryWrites=true&w=majority
 
 console.log('Starting backend')
 

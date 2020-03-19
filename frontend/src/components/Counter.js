@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import moment from 'moment'
 
+const backendUrl = process.env.BACKEND_URL || "http://localhost:8000"
+
 export const Counter = (props) => {
     
     //500/total daily dos insulin = 500/35= 14.3 (1 unit insulin takes care of 14.3 g carbs)
@@ -32,7 +34,7 @@ export const Counter = (props) => {
         console.log('inside function handleSubmit' + bloodSugar)
         console.log(JSON.stringify({'level': bloodSugar}))
         try { 
-            await fetch('http://localhost:8000/bloodsugars', {
+            await fetch(backendUrl+'/bloodsugars', {
                 method: 'POST',
                 //body: JSON.stringify({'level': bloodSugar}),
                 body: JSON.stringify({ 'value': bloodSugar}),
