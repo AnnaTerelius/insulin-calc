@@ -2,6 +2,7 @@
 *{
     font-family: 'Montserrat', sans-serif;
 }
+
 .backgroundContainer{
    /* background-image: url("grey.jpg");
     background-size: cover;*/
@@ -9,10 +10,8 @@
     align-items: center;
     height: 700px;
     flex-direction: column;
-    background-color: white;
-   
+    background-color: white; 
 }
-
 
 .backLinkContainer{
     width: 80%;
@@ -21,8 +20,7 @@
 }
 
 .backLink{
-    color: rgb(23, 47, 184);
-
+    color: rgb(23, 47, 184)
 }
 
 .container1{
@@ -56,10 +54,8 @@ h1{
 }
 
 .header-links{
-    display: flex;
-    
+    display: flex;   
 }
-
 
 .submit-btn{
     border: none; 
@@ -77,13 +73,13 @@ h1{
     background-color:rgb(33, 66, 250);
 }
 
-
 .btn-container{
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
 .reset-btn{
     border: 2px solid  rgb(23, 47, 184);
     color:  black;
@@ -103,7 +99,6 @@ h1{
     border: none;
 }
 
-
 .add-btn{
     font-weight: bold;
     color: white;
@@ -119,6 +114,7 @@ h1{
 .add-btn:hover {
     background-color: rgb(33, 66, 250);
 }
+
 a:link {
     text-decoration: none;
 }

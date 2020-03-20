@@ -4,10 +4,7 @@ import {Counter} from './Counter'
 import { Link } from 'react-router-dom'
 import {Info} from './Info'
 import {Bloodsugars} from './Bloodsugars'
-
-
 import './products.css'
-
 
 export const Products = () => {
   const [products, setProducts] = useState([])
@@ -15,13 +12,11 @@ export const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState([])
   const [error, setError] = useState('')
   
- 
   const handleSearch = async (event) => {
     event.preventDefault()
    //console.log('event handleSearch= when searching a product in API')
     try{ 
       await fetch("https://api.livsmedelkollen.se/search?q=" + message)
-        //fetch("https://api.livsmedelkollen.se")
         .then (res => res.json())
         .then (json => {setProducts(json); console.log(json)});
         setError('')
@@ -41,7 +36,6 @@ export const Products = () => {
   }
 
   const handleSelectedProduct  = async (event) => {
-    // setSelectedProduct(event.target.id)  event.preventDefault()
     console.log('searching for '+ event.target.id)
     try { 
     await fetch("https://api.livsmedelkollen.se/foodstuffs/" + event.target.id)
@@ -70,14 +64,10 @@ export const Products = () => {
  // typ för att skicka props till ny komponent spom visar upp namn och kolhydrater på sidan
  // <SelectedProduct id={selectedProduct.id} /> id={selectedProduct.id} name={selectedProduct.name} carbs={selectedProduct.carbs} unit={selectedProduct.unit}
   
-
-
   return (
     <BrowserRouter>
       <main className='backgroundContainer'>
-      
         <div className="container1">
-          
           <div className="header">
             <div className="backLinkContainer">
               <Link to={`/`}>
@@ -91,9 +81,6 @@ export const Products = () => {
               <Link to="/info"> <p className='link-info'>info</p></Link>
             </div>
           </div>
-          
-          
-          {/*<img className="img" src={test2} alt="insulin"/>*/}
         <Switch>
           <div  className="container">
           <div className="errorMessage">{error}</div>
@@ -136,11 +123,8 @@ export const Products = () => {
           </div>
         </Switch>
         <div className="footer">
-          
-         
         </div>
       </div>
-     
       </main>
     </BrowserRouter>
   )

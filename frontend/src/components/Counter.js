@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import moment from 'moment'
+//import moment from 'moment'
 
 //const backendUrl = process.env.BACKEND_URL || "http://localhost:8000"
 
@@ -14,19 +14,19 @@ export const Counter = (props) => {
     const [error, setError] = useState('')
     
    //calculate total carbs of selected products
-        let totalCarbs = 0
-        props.text.map(item => { 
-            console.log('maping selected carbs value:')
-            totalCarbs = totalCarbs+ JSON.parse(item).filter(({name}) => name === 'Kolhydrater')[0].value;
-            console.log(totalCarbs)
-      })
+    let totalCarbs = 0
+    props.text.map(item => { 
+        console.log('maping selected carbs value:')
+        totalCarbs = totalCarbs+ JSON.parse(item).filter(({name}) => name === 'Kolhydrater')[0].value;
+        console.log(totalCarbs)
+    })
 
-      //calculate dose for selected products
-      let insulinDose = totalCarbs/personalSetting
-      console.log('dose only selected products carbs' + insulinDose)
-      //adjust for current bloodsugarlevel
-      insulinDose += (bloodSugar-goalValue)/reductionPerUnit
-      console.log('dose selected products carbs + reduction if high bloodsugarlevel' + insulinDose)
+    //calculate dose for selected products
+    let insulinDose = totalCarbs/personalSetting
+    console.log('dose only selected products carbs' + insulinDose)
+    //adjust for current bloodsugarlevel
+    insulinDose += (bloodSugar-goalValue)/reductionPerUnit
+    console.log('dose selected products carbs + reduction if high bloodsugarlevel' + insulinDose)
 
 
    const  handleSubmit = async (event) => {
@@ -36,7 +36,6 @@ export const Counter = (props) => {
         try { 
             await fetch('https://insulin-calc-deployment.herokuapp.com/bloodsugars', {
                 method: 'POST',
-                //body: JSON.stringify({'level': bloodSugar}),
                 body: JSON.stringify({ 'value': bloodSugar}),
                 headers: {'Content-Type': 'application/json'}
             })
@@ -49,23 +48,13 @@ export const Counter = (props) => {
         };
     }
 
-    
-
-
   const handleReset = (event) => {
-    
     setBloodSugar('')
-   
   }
-
-  
-
- // useEffect(() => { console.log(bloodSugarLevel)})
 
 return (
     <>
         <div>
-        
             <form className="background" onSubmit={handleSubmit} onReset={handleReset}>
                 <article className="searchField">
                     <div className="doseContainer">
@@ -75,9 +64,7 @@ return (
                     <div>{error}</div>
                     </div>
                     <div className="calculatedDoseContainer">
-                       {/*} nuvarande blodsocker:  {bloodSugar}<br/>*/}
                         totalt antal kolhydrater: {totalCarbs} <br/>
-                       {/*} insulin dos:  {insulinDose.toFixed(1)}*/}
                     </div>
                     <div className="inputContainer">
                         <input type="text" placeholder="blodsockervärde" value={bloodSugar} required className="product" onChange = {(event) => { setBloodSugar(event.target.value); console.log("event onChange: Texten är: " + event.target.value)}}/>
