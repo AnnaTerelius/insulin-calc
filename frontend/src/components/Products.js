@@ -56,14 +56,9 @@ export const Products = () => {
       //console.log(event.target.value)
   };
   
-
- 
   // using useEffect to log selectedProduct in console, since setSelectedProduct(...) is async (it's not possible to console.log in the fetch because of this)
  // useEffect(() => { console.log(selectedProduct)}, [selectedProduct])
 
- // typ för att skicka props till ny komponent spom visar upp namn och kolhydrater på sidan
- // <SelectedProduct id={selectedProduct.id} /> id={selectedProduct.id} name={selectedProduct.name} carbs={selectedProduct.carbs} unit={selectedProduct.unit}
-  
   return (
     <BrowserRouter>
       <main className='backgroundContainer'>

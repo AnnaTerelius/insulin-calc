@@ -1,7 +1,4 @@
 import React, {useState, useEffect, Component} from 'react'
-//import {BrowserRouter, Switch, Route} from 'react-router-dom' 
-//import { Link } from 'react-router-dom'
-//import moment from 'moment'
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
@@ -9,8 +6,6 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import './bloodsugar.css'
 
 am4core.useTheme(am4themes_animated);
-
-//const backendUrl = process.env.BACKEND_URL || "http://localhost:8000"
 
 export const Bloodsugars = () => {
   const [bloodsugars, setBloodsugars] = useState([])
@@ -23,7 +18,6 @@ export const Bloodsugars = () => {
   
 useEffect(() =>  {
   let chart = am4core.create("chartdiv", am4charts.XYChart);
-  //let series = chart.series.create();
   let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
   dateAxis.renderer.grid.template.location = 0;
 
@@ -32,14 +26,6 @@ useEffect(() =>  {
   let series = chart.series.push(new am4charts.LineSeries());
       series.dataFields.dateX = "createdAt";
       series.dataFields.valueY = "value";
-
-//let data = [{
-  //  "createdAt": "2020-03-10 12:05",
-    //"value": 6
-  //}, {
-    //"createdAt": "2020-03-13 13:05",
-    //"value": 5
- // }]
   
   chart.data = bloodsugars
   console.log(bloodsugars)
